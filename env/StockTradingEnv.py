@@ -181,7 +181,7 @@ class StockTradingEnv(gym.Env):
             
             if self.visualization == None:
                 self.visualization = StockTradingGraph(
-                    self.df, 'MSFT')
+                    self.df, None)
 
             if self.current_step > LOOKBACK_WINDOW_SIZE:
                 self.visualization.render(

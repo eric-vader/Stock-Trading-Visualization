@@ -5,6 +5,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import style
+import matplotlib.ticker as mticker
+
 import datetime
 # finance module is no longer part of matplotlib
 # see: https://github.com/matplotlib/mpl_finance
