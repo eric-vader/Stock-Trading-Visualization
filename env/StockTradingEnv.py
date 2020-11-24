@@ -172,14 +172,16 @@ class StockTradingEnv(gym.Env):
         file.close()
 
     def render(self, mode='live', **kwargs):
+
         # Render the environment to the screen
         if mode == 'file':
             self._render_to_file(kwargs.get('filename', 'render.txt'))
 
         elif mode == 'live':
+            
             if self.visualization == None:
                 self.visualization = StockTradingGraph(
-                    self.df, kwargs.get('title', None))
+                    self.df, 'MSFT')
 
             if self.current_step > LOOKBACK_WINDOW_SIZE:
                 self.visualization.render(

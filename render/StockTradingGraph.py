@@ -5,12 +5,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import style
-
+import datetime
 # finance module is no longer part of matplotlib
 # see: https://github.com/matplotlib/mpl_finance
-from mpl_finance import candlestick_ochl as candlestick
+from mplfinance.original_flavor import candlestick_ochl as candlestick
 
-style.use('dark_background')
+
 
 VOLUME_CHART_HEIGHT = 0.33
 
@@ -20,9 +20,10 @@ UP_TEXT_COLOR = '#73D3CC'
 DOWN_TEXT_COLOR = '#DC2C27'
 
 
+
 def date2num(date):
-    converter = mdates.strpdate2num('%Y-%m-%d')
-    return converter(date)
+    dt = datetime.datetime.strptime(date, '%Y-%m-%d')
+    return mdates.date2num(dt)
 
 
 class StockTradingGraph:
